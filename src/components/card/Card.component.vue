@@ -4,6 +4,8 @@
         <img class="icon" :src="`https://robohash.org/${monster.id}?set=set2&size=180x180`" alt="monster">
         <h1>{{ monster.name }}</h1>
         <p>{{ monster.email }}</p>
+        <!-- <h1>{{ monster.name }}</h1>
+        <p>{{ monster.email }}</p> -->
     </div>
    
 </template>
@@ -18,3 +20,7 @@ export default{
 }
 
 </script>
+
+<style lang="sass" scoped>
+@import "./Card.styles.scss";
+</style>

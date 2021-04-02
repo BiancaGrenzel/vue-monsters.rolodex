@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div>
-      <CardComponent></CardComponent>
+    <div class="card-list">
+      <CardComponent v-for="monster in monsters" v-bind:key="monster.id" :monster="monster"></CardComponent>
     </div>
     <!-- <CardList></CardList>
     <SearchBox></SearchBox> -->
@@ -27,12 +27,21 @@ export default {
   },
 
   created() {
-    fetch
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
+      fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
       .then((users) => (this.monsters = users));
   },
 };
 </script>
 
-<script></script>
+<style>
+.card-list {
+    width: 85vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+</style>
+
