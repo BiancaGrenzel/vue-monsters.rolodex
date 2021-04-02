@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div>
+      <CardComponent></CardComponent>
+    </div>
+    <!-- <CardList></CardList>
+    <SearchBox></SearchBox> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import CardComponent from "@/components/card/Card.component.vue";
+// import CardList from "@/components/card-list/CardList.component.vue";
+// import SearchBox from "@/components/search-box/SearchBox.component.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    'CardComponent':CardComponent
+  },
+
+  data() {
+    return {
+      monsters: [],
+    };
+  },
+
+  created() {
+    fetch
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((users) => (this.monsters = users));
   },
 };
 </script>
+
+<script></script>
